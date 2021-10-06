@@ -26,15 +26,24 @@ var obj = {
 };
 console.log(obj);
 
-function findPath(obj, string) {}
+function findPath(obj, string) {
+  if (obj && obj.constructor.name === "Object") {
+    let array = string.split(".");
+    // for (obj of array) {
+    //   console.log(obj, "hey");
+    // }
+    return array;
+  } else if (obj === undefined) {
+    return undefined;
+  }
+}
 
-/*
-console.log(findPAth(obj, 'a.b.c')); // 12
-console.log(findPAth(obj, 'a.b')); // {c: 12, j: false}
-console.log(findPAth(obj, 'a.b.d')); // undefined
-console.log(findPAth(obj, 'a.c')); // undefined
-console.log(findPAth(obj, 'a.b.c.d')); // undefined
-console.log(findPAth(obj, 'a.b.c.d.e')); // undefined
-console.log(findPAth(obj, 'a.b.j')); //false
-console.log(findPAth(obj, 'a.b.j.k')); //undefined
-console.log(findPAth(obj, 'a.k')); //null */
+console.log(findPath(obj, "a.b.c")); // 12
+// console.log(findPath(obj, "a.b")); // {c: 12, j: false}
+// console.log(findPath(obj, "a.b.d")); // undefined
+// console.log(findPath(obj, "a.c")); // undefined
+// console.log(findPath(obj, "a.b.c.d")); // undefined
+// console.log(findPath(obj, "a.b.c.d.e")); // undefined
+// console.log(findPath(obj, "a.b.j")); //false
+// console.log(findPath(obj, "a.b.j.k")); //undefined
+// console.log(findPath(obj, "a.k")); //null
