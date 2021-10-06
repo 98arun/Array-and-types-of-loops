@@ -48,7 +48,7 @@ for (let key in obj) {
 
 let names = ["harsh", "sunny", "sonu"];
 for (let items of names) {
-  //   console.log(items);
+  console.log(items);
 }
 
 //which loop is faster like for , for of , forEach
