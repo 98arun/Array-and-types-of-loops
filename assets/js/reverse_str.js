@@ -23,6 +23,6 @@ const reverseWords = (str) => {
 
 // console.log(reverseWords("asts7hg8jsgtred5lyaass")); // stsa7gh8dertgsj5ssaayl
 // console.log(reverseWords("asts77hg8jsgtred5lyaass")); // stsa77gh8dertgsj5ssaayl
-console.log(reverseWords("123")); // 123
+// console.log(reverseWords("123")); // 123
 // console.log(reverseWords("asd")); // dsa
 // console.log(reverseWords("asd1f")); // dsa1f

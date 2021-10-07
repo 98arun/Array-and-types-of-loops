@@ -24,15 +24,15 @@ var myObj = {
     k: null,
   },
 };
-const deepFreeze = (obj) => {
-  Object.keys(obj).forEach((prop) => {
-    if (typeof obj[prop] === "object" && !Object.isFrozen(obj[prop])) {
-      deepFreeze(obj[prop]);
-    }
-  });
-  return Object.freeze(obj);
-};
-deepFreeze(myObj);
+// const deepFreeze = (obj) => {
+//   Object.keys(obj).forEach((prop) => {
+//     if (typeof obj[prop] === "object" && !Object.isFrozen(obj[prop])) {
+//       deepFreeze(obj[prop]);
+//     }
+//   });
+//   return Object.freeze(obj);
+// };
+// deepFreeze(myObj);
 console.log("LN36", myObj);
 
 function findPath(myObj, str) {
@@ -48,8 +48,10 @@ function findPath(myObj, str) {
   // Converting string into an array
 
   const array = str.split(".");
-  let objMap = { ...myObj };
+  // let objMap = { ...myObj };
+  let objMap = JSON.parse(JSON.stringify(myObj));
   objMap.a.b.c = 11;
+  objMap.a.b.j = true;
   // console.log("LN54", objMap);
 
   for (let item of array) {
