@@ -15,7 +15,7 @@
  * @returns     If the value is existing it will return the value otherwise it will return undefined
  */
 
-var obj = {
+var myObj = {
   a: {
     b: {
       c: 12,
@@ -24,26 +24,49 @@ var obj = {
     k: null,
   },
 };
-console.log(obj);
+const deepFreeze = (obj) => {
+  Object.keys(obj).forEach((prop) => {
+    if (typeof obj[prop] === "object" && !Object.isFrozen(obj[prop])) {
+      deepFreeze(obj[prop]);
+    }
+  });
+  return Object.freeze(obj);
+};
+deepFreeze(myObj);
+console.log("LN36", myObj);
 
-function findPath(obj, string) {
-  if (obj && obj.constructor.name === "Object") {
-    let array = string.split(".");
-    // for (obj of array) {
-    //   console.log(obj, "hey");
-    // }
-    return array;
-  } else if (obj === undefined) {
-    return undefined;
+function findPath(myObj, str) {
+  // Check if not a valid obj
+
+  if (!str || typeof str !== "string") {
+    return "It is not a valid string";
   }
+  if (!myObj || myObj.constructor.name !== "Object") {
+    return "It is not a valid object";
+  }
+
+  // Converting string into an array
+
+  const array = str.split(".");
+  let objMap = { ...myObj };
+  objMap.a.b.c = 11;
+  // console.log("LN54", objMap);
+
+  for (let item of array) {
+    if (!objMap || objMap.constructor.name !== "Object") {
+      return;
+    }
+    objMap = objMap[item];
+  }
+  return objMap;
 }
 
-console.log(findPath(obj, "a.b.c")); // 12
-// console.log(findPath(obj, "a.b")); // {c: 12, j: false}
-// console.log(findPath(obj, "a.b.d")); // undefined
-// console.log(findPath(obj, "a.c")); // undefined
-// console.log(findPath(obj, "a.b.c.d")); // undefined
-// console.log(findPath(obj, "a.b.c.d.e")); // undefined
-// console.log(findPath(obj, "a.b.j")); //false
-// console.log(findPath(obj, "a.b.j.k")); //undefined
-// console.log(findPath(obj, "a.k")); //null
+console.log(findPath(myObj, "a.b")); // {c: 12, j: false}
+console.log(findPath(myObj, "a.b.c")); // 12
+console.log(findPath(myObj, "a.b.d")); // undefined
+console.log(findPath(myObj, "a.c")); // undefined
+console.log(findPath(myObj, "a.b.c.d")); // undefined
+console.log(findPath(myObj, "a.b.c.d.e")); // undefined
+console.log(findPath(myObj, "a.b.j")); //false
+console.log(findPath(myObj, "a.b.j.k")); //undefined
+console.log(findPath(myObj, "a.k")); //null
