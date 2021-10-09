@@ -36,7 +36,7 @@ var myObj = {
 console.log("LN36", myObj);
 
 function findPath(myObj, str) {
-  // Check if not a valid obj
+  // Check if it is not a valid string and obj
 
   if (!str || typeof str !== "string") {
     return "It is not a valid string";
