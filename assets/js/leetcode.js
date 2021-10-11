@@ -50,6 +50,7 @@ function findPath(myObj, str) {
   const array = str.split(".");
   // let objMap = { ...myObj };
   let objMap = JSON.parse(JSON.stringify(myObj));
+  // let objMap = {myObj}
   objMap.a.b.c = 11;
   objMap.a.b.j = true;
   // console.log("LN54", objMap);
