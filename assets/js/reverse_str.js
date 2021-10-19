@@ -32,9 +32,11 @@ const reverseWords = (str) => {
       // console.log("LN24", arrStr);
       // result += arrStr.reverse().join("");
       result += reverseStr(arrStr);
-    } else if (parseInt(arr[i]) === NaN) {
-      result += arr[i];
     }
+    // else if (parseInt(arr[i]) === NaN) {
+    //   result += arr[i];
+    //   console.log("LN37", result);
+    // }
   }
   return result;
 };

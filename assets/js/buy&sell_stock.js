@@ -9,14 +9,19 @@
  * After the loop was completed 6 times we have a new array like [4,1,0,2,5]. we have to sort it again as [0,1,2,4,5]
    and pick the bigger value as 5 from the new array so that value is our maxProfit.
  */
-// let radius = [3, 1, 2, 4, 6];
 
-// const area = function (radius) {
-//   const output = [];
-//   for (let i = 0; i < radius.length; i++) {
-//     output.push(Math.PI * radius[i] * radius[i]);
-//   }
-//   return output;
-// };
-// console.log(area(radius));
-// console.log(radius.map(radius));
+const maxProfit = (p) => {
+  let min = Number.MAX_SAFE_INTEGER;
+  let profit = 0;
+  for (let i = 0; i < p.length; i++) {
+    if (p[i] < min) {
+      min = p[i];
+    } else if (p[i] - min > profit) {
+      profit = p[i] - min;
+    }
+  }
+  return profit;
+};
+let prices = [7, 1, 5, 3, 6, 4];
+// let prices = [7, 6, 4, 3, 1];
+console.log(maxProfit(prices));

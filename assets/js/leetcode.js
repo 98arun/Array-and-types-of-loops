@@ -20,6 +20,7 @@ var myObj = {
     b: {
       c: 12,
       j: false,
+      d: 11,
     },
     k: null,
   },
@@ -56,6 +57,8 @@ function findPath(myObj, str) {
   // console.log("LN54", objMap);
 
   for (let item of array) {
+    // console.log(!objMap);
+
     if (!objMap || objMap.constructor.name !== "Object") {
       return;
     }
@@ -64,12 +67,12 @@ function findPath(myObj, str) {
   return objMap;
 }
 
-console.log(findPath(myObj, "a.b")); // {c: 12, j: false}
-console.log(findPath(myObj, "a.b.c")); // 12
+// console.log(findPath(myObj, "a.b")); // {c: 12, j: false}
+// console.log(findPath(myObj, "a.b.c")); // 12
 console.log(findPath(myObj, "a.b.d")); // undefined
-console.log(findPath(myObj, "a.c")); // undefined
-console.log(findPath(myObj, "a.b.c.d")); // undefined
-console.log(findPath(myObj, "a.b.c.d.e")); // undefined
-console.log(findPath(myObj, "a.b.j")); //false
-console.log(findPath(myObj, "a.b.j.k")); //undefined
-console.log(findPath(myObj, "a.k")); //null
+// console.log(findPath(myObj, "a.c")); // undefined
+// console.log(findPath(myObj, "a.b.c.d")); // undefined
+// console.log(findPath(myObj, "a.b.c.d.e")); // undefined
+// console.log(findPath(myObj, "a.b.j")); //false
+// console.log(findPath(myObj, "a.b.j.k")); //undefined
+// console.log(findPath(myObj, "a.k")); //null
