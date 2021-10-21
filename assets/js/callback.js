@@ -9,9 +9,9 @@ function calcProduct(num1, num2) {
 function calcSum(num1, num2) {
   return num1 + num2;
 }
-// alerts 75, the product of 5 and 15
+// returns 75, the product of 5 and 15
 console.log(calculate(5, 15, calcProduct));
-// alerts 20, the sum of 5 and 15
+// returns 20, the sum of 5 and 15
 console.log(calculate(5, 15, calcSum));
 
 //create callback
