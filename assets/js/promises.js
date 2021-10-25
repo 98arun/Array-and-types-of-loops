@@ -1,3 +1,4 @@
+console.log("Inside promise");
 const posts = [
   { title: "one", body: "this is one" },
   { title: "two", body: "this is two" },
@@ -129,3 +130,12 @@ promise
   .catch((e) => {
     console.log("error", e);
   });
+
+// (() => {
+//   let one = (two = 0);
+//   one += two + 1;
+//   return one;
+// })();
+
+// console.log(typeof one);
+// console.log(typeof two);
